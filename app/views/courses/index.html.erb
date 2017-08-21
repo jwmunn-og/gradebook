@@ -1,0 +1,16 @@
+<br />
+<div class="row">
+  <div class="medium-10 large-offset-1 columns">
+    <h1 class="text-center">Enroll in a Course</h1>
+
+    <% @courses.each do |course| %>
+      <div class="card">
+        <div class="card-section">
+          <h2><%= course.title %></h2>
+          <p><%= course.description %></p>
+          <%= link_to 'Enroll', '#', class: 'button' %>
+        </div>
+      </div>
+    <% end %>
+  </div>
+</div>
