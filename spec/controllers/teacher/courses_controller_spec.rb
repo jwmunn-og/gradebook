@@ -16,7 +16,8 @@ RSpec.describe Teacher::CoursesController, type: :controller do
       user = FactoryGirl.create(:user)
       sign_in user
 
-      post :create, params: { course: { title: 'Cognitive Neuroscience' } }
+      post :create, params: { course: { title: 'Cognitive Neuroscience',
+                                        description: 'Course on the biological processes and aspects that underlie cognition' } }
       course = Course.last
       expect(response).to redirect_to teacher_course_path(course)
 

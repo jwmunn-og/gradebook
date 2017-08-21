@@ -4,10 +4,11 @@
     <div class="card">
       <div class="card-section">
         <h4>Add a New Course</h4>
-        <hr />
         <%= simple_form_for @course, url: teacher_courses_path do |f| %>
           <%= f.input :title %>
+          <br />
           <%= f.input :description %>
+          <br />
           
           <%= f.submit "Create Course", class: 'button expanded' %>
         <% end %>
