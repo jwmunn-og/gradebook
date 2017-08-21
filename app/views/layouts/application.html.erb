@@ -26,7 +26,6 @@
         <div class="top-bar-right">
           <ul class="menu">
             <% if user_signed_in? %>
-              <li><%= link_to 'My Dashboard', dashboard_path %></li>
               <li><%= link_to 'Sign Out', destroy_user_session_path, method: :delete, class: 'button' %></li>
             <% else %>
               <li><%= link_to 'Log In', new_user_session_path %></li>
@@ -44,6 +43,10 @@
     <% end %>
 
     <%= yield %>
+
+    <footer>
+      <%= link_to 'Teach a Course', new_teacher_course_path %>
+    </footer>
 
   <%= javascript_include_tag "application", 'data-turbolinks-track' => true %>
   </body>
