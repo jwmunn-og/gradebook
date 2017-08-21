@@ -33,6 +33,8 @@ gem 'foundation-rails'
 gem 'devise'
 # Use Simple Form for Form Handling
 gem 'simple_form'
+# Use Factory Girl for User Authenticated tests
+gem "factory_girl_rails", "~> 4.0"
 
 
 group :development, :test do
