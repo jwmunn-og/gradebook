@@ -7,11 +7,35 @@
     <title><%= content_for?(:title) ? yield(:title) : "Untitled" %></title>
 
     <%= stylesheet_link_tag    "application" %>
-    <%= javascript_include_tag "application", 'data-turbolinks-track' => true %>
     <%= csrf_meta_tags %>
   </head>
 
   <body>
+    <nav>
+      <div class="title-bar" data-responsive-toggle="example-menu" data-hide-for="medium">
+        <button class="menu-icon" type="button" data-toggle="example-menu"></button>
+        <div class="title-bar-title">Menu</div>
+      </div>
+
+      <div class="top-bar" id="example-menu">
+        <div class="top-bar-left">
+          <ul class="dropdown menu" data-dropdown-menu>
+            <li class="menu"><%= link_to 'Gradebook', root_path, id: 'logo' %></li>
+          </ul>
+        </div>
+        <div class="top-bar-right">
+          <ul class="menu">
+            <% if user_signed_in? %>
+              <li><%= link_to 'My Dashboard', dashboard_path %></li>
+              <li><%= link_to 'Sign Out', destroy_user_session_path, method: :delete, class: 'button' %></li>
+            <% else %>
+              <li><%= link_to 'Log In', new_user_session_path %></li>
+              <li><%= link_to 'Sign Up', new_user_registration_path, class: 'button' %></li>
+            <% end %>
+          </ul>
+        </div>
+      </div>
+    </nav>
     <% if notice.present? %>
       <p class="callout primary"><%= notice %></p>
     <% end %>
@@ -21,5 +45,6 @@
 
     <%= yield %>
 
+  <%= javascript_include_tag "application", 'data-turbolinks-track' => true %>
   </body>
 </html>

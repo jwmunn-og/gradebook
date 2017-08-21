@@ -31,6 +31,8 @@ gem 'jbuilder', '~> 2.5'
 gem 'foundation-rails'
 # Use Devise for User Authentication
 gem 'devise'
+# Use Simple Form for Form Handling
+gem 'simple_form'
 
 
 group :development, :test do
