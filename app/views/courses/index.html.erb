@@ -8,7 +8,7 @@
         <div class="card-section">
           <h2><%= course.title %></h2>
           <p><%= course.description %></p>
-          <%= link_to 'Enroll', '#', class: 'button' %>
+          <%= link_to 'Enroll', course_enrollments_path(course), class: 'button', method: :post %>
         </div>
       </div>
     <% end %>
