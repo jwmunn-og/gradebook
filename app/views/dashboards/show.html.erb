@@ -1,0 +1,13 @@
+<h1>My Dashboard</h1>
+<% current_user.enrolled_courses.each do |course| %>
+  <h3 class="text-center"><%= course.title %></h3>
+  <p>Current Grade: _</p>
+  <hr />
+<% end %>
+
+<h1>What I'm Teaching</h1>
+<% current_user.courses.each do |course| %>
+  <h3 class="text-center">
+    <%= course.title %>
+  </h3>
+<% end %>
