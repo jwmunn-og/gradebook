@@ -10,7 +10,7 @@ class Course < ApplicationRecord
     if enrolled_course_grades.length == 0
       return 0
     else
-      average = enrolled_course_grades.inject(0, :+) / enrolled_course_grades.length
+      average = (enrolled_course_grades.inject(0, :+) / enrolled_course_grades.length).round(2)
       return average
     end
   end

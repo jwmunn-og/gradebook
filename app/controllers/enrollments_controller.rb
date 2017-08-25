@@ -3,7 +3,7 @@ class EnrollmentsController < ApplicationController
 
   def create
     current_user.enrollments.create(course: current_course)
-    redirect_to root_path
+    redirect_to courses_path
   end
 
   def edit
