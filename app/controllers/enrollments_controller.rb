@@ -16,6 +16,12 @@ class EnrollmentsController < ApplicationController
     redirect_to teacher_course_path(@enrollment.course_id)
   end
 
+  def destroy
+    @enrollment = Enrollment.find(params[:id])
+    @enrollment.destroy
+    redirect_to teacher_course_path(@enrollment.course_id)
+  end
+
   private
 
   def current_course
