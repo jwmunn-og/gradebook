@@ -4,7 +4,7 @@
     <h1 class="text-center"><%= @course.title %> Roster</h1>
     
     <% @students.each do |student| %>
-      <h4><%= student.email %> Grade: __ <%= link_to 'Edit', '#', class: 'button warning' %> <%= link_to 'Remove', '#', class: 'button alert' %> </h4>
+      <h4><%= student.email %> Grade: <%= student.grade %> <%= link_to 'Edit', '#', class: 'button warning' %> <%= link_to 'Remove', '#', class: 'button alert' %> </h4>
     <% end %>
   </div>
 </div>
