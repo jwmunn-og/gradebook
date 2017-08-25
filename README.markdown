@@ -29,18 +29,8 @@ We expect you to demonstrate proficiency with:
 
 When we evaluate your submission, we will be reviewing it in the context of your professional experience. We don't expect a novice to be writing more advanced code, and we wouldn't expect an advanced programmer to be writing novice code -- keep that in mind as you do the exercise.
 
-## Submission
+## Application Installation
 
-Once you've completed the exercise:
-
-1. Make sure you can run the app from scratch (e.g. `bundle && rake db:migrate && rails server`)
-1. Run all tests to ensure that they are still passing
-1. Document any special considerations for running / using the application
-
-Once you're ready to send us your working application:
-
-1. Create a bare clone of your local repository (`git clone --bare gradebook gradebook.git`)
-1. Create a tarball of the repository (`tar czf gradebook.tar.gz gradebook.git`)
-1. Email your submission to developers@viget.com
-
-If you have any questions during this exercise, please feel free to email developers@viget.com with any questions.
+* `bundle && rake db:migrate && rake db:seed && rails server`
+* With the server running navigate to `localhost:3030` in your browser
+* Information about seeding accounts is on the homepage
