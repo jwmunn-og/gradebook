@@ -3,7 +3,7 @@ Rails.application.routes.draw do
   root "static_pages#index"
   resource :dashboard, only: [:show]
   resources :courses, only: [:index, :show] do
-    resources :enrollments, only: :create
+    resources :enrollments
   end
   resources :courses, only: [:index, :show]
   namespace :teacher do
