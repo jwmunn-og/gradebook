@@ -1,20 +1,24 @@
 <br />
+<h1 class="text-center">Enroll in a Course</h1>
+<br />
 <div class="row">
   <div class="medium-10 large-offset-1 columns">
-    <h1 class="text-center">Enroll in a Course</h1>
-
-    <% @courses.each do |course| %>
-      <div class="card">
-        <div class="card-section">
-          <h2><%= course.title %></h2>
-          <p><%= course.description %></p>
-          <% if current_user && current_user.enrolled_in?(course) %>
-            <h3 class="success label">You Are Enrolled!</h3>
-          <% else %>
-            <%= link_to 'Enroll', course_enrollments_path(course), class: 'button', method: :post %>
-          <% end %>
+    <div class="row">
+      <% @courses.each do |course| %>
+        <div class="small-12 medium-6 columns">
+          <div class="card">
+            <div class="card-section text-center">
+              <h3><%= course.title %></h3>
+              <p><%= course.description %></p>
+              <% if current_user && current_user.enrolled_in?(course) %>
+                <h3 class="success label">You Are Enrolled!</h3>
+              <% else %>
+                <%= link_to 'Enroll', course_enrollments_path(course), class: 'button expanded', method: :post %>
+              <% end %>
+            </div>
+          </div>
         </div>
-      </div>
-    <% end %>
+      <% end %>
+    </div>
   </div>
 </div>
