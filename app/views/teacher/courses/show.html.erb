@@ -1,6 +1,10 @@
 <br />
 <div class="row">
   <div class="medium-6 large-offset-3 columns">
-    <h1 class="text-center"><%= @course.title %></h1>
+    <h1 class="text-center"><%= @course.title %> Roster</h1>
+    
+    <% @students.each do |student| %>
+      <h4><%= student.email %> Grade: __ <%= link_to 'Edit', '#', class: 'button warning' %> <%= link_to 'Remove', '#', class: 'button alert' %> </h4>
+    <% end %>
   </div>
 </div>

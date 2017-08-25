@@ -8,6 +8,6 @@
 <h1>What I'm Teaching</h1>
 <% current_user.courses.each do |course| %>
   <h3 class="text-center">
-    <%= course.title %>
+    <%= link_to course.title, teacher_course_path(course) %>
   </h3>
 <% end %>

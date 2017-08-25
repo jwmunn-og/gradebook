@@ -16,6 +16,7 @@ class Teacher::CoursesController < ApplicationController
 
   def show
     @course = Course.find(params[:id])
+    @students = Enrollment.where(course_id: @course.id)
   end
 
   private
