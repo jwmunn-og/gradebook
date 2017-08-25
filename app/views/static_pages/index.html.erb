@@ -1,1 +1,46 @@
-<h1>Gradebook</h1>
+<br />
+<h1 class="text-center">Application Developer Apprentice Gradebook</h1>
+<h5 class="text-center">Code by <%= link_to 'Justin Munn', 'https://github.com/jwmunn' %></h5>
+<p class="text-center">This app is seeded with Admin, Teacher, and Student profiles.</p>
+<br />
+<div class="row">
+  <div class="small-12 large-6 columns">
+    <h5>Admin Login</h5>
+    <p>
+      <ul>
+        <li>Email: <code>dean.hardscrabble@monsteru.edu</code></li>
+        <li>Password: <code>top_secret</code></li>
+      </ul>
+
+      To create a new Admin account login or create a new account and while logged in to the rails console enter:</p>
+      <p><code>current_user.update_attribute :admin, true</code></p>
+
+    <p>Admin accounts can access the <% if user_signed_in? %><% if current_user.try(:admin?) %><%= link_to 'Admin', admin_dashboards_path %><% else %><strong>Admin Dashboard</strong><% end %><% end %> in the top nav.</p>
+    <ul>
+      <li>An Administrator can view enrollment counts across all courses</li>
+      <li>An Administrator can view an average grade for a given course</li>
+    </ul>
+    <p>As an admin you also have teacher privledges and can access the <code>teacher#course</code> view through the course links of the admin page.</p>
+  </div>
+  <div class="small-12 large-6 columns">
+    <h5>Teacher Login</h5>
+    <p>
+      <ul>
+        <li>Email: <code>professor.knight@monsteru.edu</code></li>
+        <li>Password: <code>top_secret</code></li>
+        <li>A Teacher can manage his course roster by adding grades and removing enrollments in the <% if user_signed_in? %><%= link_to 'Dashboard', dashboard_path %><% else %><strong>Dashboard</strong><% end %></li>
+        <li>A Teacher can view the enrolled students and their grades for a given course in the <% if user_signed_in? %><%= link_to 'Dashboard', dashboard_path %><% else %><strong>Dashboard</strong><% end %></li>
+        <li>To become a teacher simply, <%= link_to 'Create a Course', new_teacher_course_path %></li>
+      </ul>
+    </p>
+    <hr />
+    <h5>Student Login</h5>
+      <ul>
+        <li>Email: <code>frank.mccay@monsteru.edu</code></li>
+        <li>Password: <code>top_secret</code></li>
+        <li>A Student can see the courses he is registered for (with grades)</li>
+        <li>A Student can see his GPA in the <% if user_signed_in? %><%= link_to 'Dashboard', dashboard_path %><% else %><strong>Dashboard</strong><% end %></li>
+      </ul>
+    </p>
+  </div>
+</div>
