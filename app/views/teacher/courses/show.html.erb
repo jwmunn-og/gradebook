@@ -1,13 +1,34 @@
 <br />
+<h1 class="text-center"><%= @course.title %> Roster</h1>
+<br />
 <div class="row">
-  <div class="medium-6 large-offset-3 columns">
-    <h1 class="text-center"><%= @course.title %> Roster</h1>
-    
-    <% @students.each do |student| %>
-      <h4><%= student.email %> 
-          Grade: <%= student.grade %> 
-          <%= link_to 'Edit', edit_course_enrollment_path(student, course_id: student.course_id, id: student.id), class: 'button warning' %> 
-          <%= link_to 'Remove', course_enrollment_path(student, course_id: student.course_id, id: student.id), method: :delete, data: {confirm: 'Are you sure you remove this person from the class?'}, class: 'button alert' %> </h4>
-    <% end %>
+  <div class="small-12 medium-10 large-offset-1 columns">
+    <div class="row">
+      <table class="hover">
+        <thead>
+          <tr>
+            <th>Name</th>
+            <th>Grade</th>
+            <th>Manage</th>
+          </tr>
+        </thead>
+        <tbody>
+          <% @students.each do |student| %>
+          <tr>
+            <td>
+              <h4><%= student.email %></h4>
+            </td>
+            <td>
+              <strong><%= student.grade %></strong>
+            </td>
+            <td>
+              <%= link_to 'Edit', edit_course_enrollment_path(student, course_id: student.course_id, id: student.id), class: 'button warning' %> 
+                <%= link_to 'Remove', course_enrollment_path(student, course_id: student.course_id, id: student.id), method: :delete, data: {confirm: 'Are you sure you remove this person from the class?'}, class: 'button alert' %>
+            </td>
+          </tr>
+           <% end %>
+        </tbody>
+      </table>
+    </div>
   </div>
 </div>

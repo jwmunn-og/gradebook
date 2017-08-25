@@ -3,11 +3,15 @@
   <div class="medium-6 large-offset-3 columns">
     <div class="card">
       <div class="card-section">
-        <h4>Enrollment Edit Page</h4>
+        <h3 class="text-center">Update Grade</h3>
         <%= simple_form_for @enrollment, :url => course_enrollment_path do |f| %>
+          <label>Student:</label>
+          <p class="lead"><strong><%= @enrollment.email %></strong></p>
+          <label>Course:</label>
+          <p class="lead"><strong><%= @enrollment.course.title.inspect %></strong></p>
           <%= f.input :grade %>
           <br />
-          <%= f.submit 'Update Grade', class: 'button' %>
+          <%= f.submit 'Update Grade', class: 'button expanded' %>
         <% end %>
       </div>
     </div>

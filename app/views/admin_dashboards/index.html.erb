@@ -1,5 +1,22 @@
-<h1>Admin Dashboard</h1>
+<br />
+<h1 class="text-center">Admin Dashboard</h1>
+<br />
 
-<% @courses.each do |course| %>
-  <h3><%= link_to course.title, teacher_course_path(course) %> <h5 class="h5">Students Enrolled: <strong><%= course.enrollments.count %></strong> &middot; Class GPA: <strong><%= course.class_gpa %></strong></h5></h3>
-<% end %>
+<div class="row">
+  <div class="small-12 medium-10 large-offset-1 columns">
+    <div class="row">
+      <% @courses.each do |course| %>
+        <div class="small-12 medium-6 columns">
+            <div class="card">
+              <div class="card-section text-center">
+                <h3><%= course.title %></h3>
+                <p class="lead">Students Enrolled: <strong><%= course.enrollments.count %></strong></p>
+                <div class="callout warning">Class GPA: <strong><%= course.class_gpa %></strong></div>
+                <%= link_to 'View Course Roster', teacher_course_path(course), class: 'button expanded' %>
+              </div>
+            </div>
+        </div>
+      <% end %>
+    </div>
+  </div>
+</div>

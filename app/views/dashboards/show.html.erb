@@ -1,13 +1,46 @@
-<h1>My Dashboard</h1>
-Current GPA: <%= current_user.current_gpa.inspect %>
-<% current_user.enrollments.each do |enrollment| %>
-  <h4><%= enrollment.course.title %> Grade: <%= enrollment.grade %></h4>
-  <hr />
+<% if current_user.enrollments.exists? %>
+<br />
+<h1 class="text-center">My Dashboard</h1>
+<br />
+<div class="row">
+  <div class="small-12 medium-10 large-offset-1 columns">
+    <div class="callout warning text-center">
+      <h5>Current GPA: <strong><%= current_user.current_gpa %></strong></h5>
+    </div>
+    <div class="row">
+      <% current_user.enrollments.each do |enrollment| %>
+        <div class="small-12 medium-6 columns">
+          <div class="card">
+            <div class="card-section text-center">
+              <h3><%= enrollment.course.title %></h3>
+              <p>Grade: <%= enrollment.grade %></p>
+            </div>
+          </div>
+        </div>
+      <% end %>
+    </div>
+  </div>
+</div>
+<% else %>
+  <h2 class="text-center"><small>You aren&rsquo;t Enrolled in any courses at the moment</small></h2>
 <% end %>
-
-<h1>What I'm Teaching</h1>
-<% current_user.courses.each do |course| %>
-  <h3 class="text-center">
-    <%= link_to course.title, teacher_course_path(course) %>
-  </h3>
+<% if current_user.courses.exists? %>
+  <br />
+  <h1 class="text-center">What I&rsquo;m Teaching</h1>
+  <br />
+  <div class="row">
+    <div class="small-12 medium-10 large-offset-1 columns">
+      <% current_user.courses.each do |course| %>
+        <div class="small-12 medium-6 columns">
+          <div class="card">
+            <div class="card-section text-center">
+              <h3><%= course.title %></h3>
+              <p><%= course.description %></p>
+              <%= link_to 'View Roster', teacher_course_path(course), class: 'button expanded' %>
+            </div>
+          </div>
+        </div>
+      <% end %>
+    </div>
+  </div>
 <% end %>
