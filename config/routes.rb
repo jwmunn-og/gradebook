@@ -2,6 +2,8 @@ Rails.application.routes.draw do
   devise_for :users
   root "static_pages#index"
   resource :dashboard, only: [:show]
+  resources :admin_dashboards, only: [:index]
+  
   resources :courses, only: [:index, :show] do
     resources :enrollments
   end
