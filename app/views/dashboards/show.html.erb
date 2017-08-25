@@ -1,5 +1,5 @@
 <h1>My Dashboard</h1>
-
+Current GPA: <%= current_user.current_gpa.inspect %>
 <% current_user.enrollments.each do |enrollment| %>
   <h4><%= enrollment.course.title %> Grade: <%= enrollment.grade %></h4>
   <hr />

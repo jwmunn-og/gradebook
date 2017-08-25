@@ -12,4 +12,10 @@ class User < ApplicationRecord
     enrolled_courses = enrollments.collect(&:course)
     return enrolled_courses.include?(course)
   end
+
+  def current_gpa
+    enrolled_course_grades = enrollments.collect(&:grade)
+    average = enrolled_course_grades.inject(0, :+) / enrolled_course_grades.length
+    return average
+  end
 end
